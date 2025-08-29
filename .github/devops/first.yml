@@ -11,18 +11,18 @@ jobs:
 
     steps:
       # Checkout code from dev branch
-    - name: checkout code
-      uses: actions/checkout@v5.0.0
+      - name: Checkout code
+        uses: actions/checkout@v5.0.0
 
-    - name: nodejs steup
-      uses: actions/setup-node@v4
-      with:
-        node-version: 18
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
 
-    - name: install dependies
-      run: npm install
+      - name: Install dependencies
+        run: npm install
 
-    - name: runtest
-    - run: |
-        mkdir -p test results
-        npm test -- --reporter mocha-junit-reporter--reporter-options mochaFile=./test-results/results.xml
+      - name: Run tests
+        run: |
+          mkdir -p test results
+          npm test -- --reporter mocha-junit-reporter --reporter-options mochaFile=./test-results/results.xml
