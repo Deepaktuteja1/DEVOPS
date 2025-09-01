@@ -63,7 +63,7 @@ jobs:
           sudo mv ./bin/trivy /usr/local/bin/
           trivy --version
       - name: scan docker image
-        run: trivy image --exit-code 1 --servity HIGH,CRITICAL my-node-app
+        run: trivy image --exit-code 1 --severity HIGH,CRITICAL my-node-app
 
       - name: run test inside docker
         run: docker run --rm my-node-app npm test
